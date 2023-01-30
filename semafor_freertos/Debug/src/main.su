@@ -1,0 +1,10 @@
+main.c:29:6:printMessage	24	static
+main.c:37:5:main	16	static
+main.c:65:6:Master_Task_Handler	32	static
+main.c:93:6:SlaveDoWork	16	static
+main.c:103:6:Slave_Task_Handle	32	static
+main.c:131:6:Sys_Config	8	static
+main.c:138:6:GPIO_Config	16	static
+main.c:159:6:USART_Config	24	static
+main.c:192:6:EVAL_AUDIO_TransferComplete_CallBack	16	static
+main.c:201:10:EVAL_AUDIO_GetSampleCallBack	4	static

@@ -1,0 +1,221 @@
+#include "stm32f4xx.h"
+#include "stm32f4_discovery.h"
+
+#include "FreeRTOS.h"
+#include "task.h"
+#include "queue.h"
+
+#include <string.h>
+#include <stdio.h>
+
+char mymessage[100];
+
+TaskHandle_t Task1MenuDisplayHandle    = NULL;
+TaskHandle_t Task2CommandHandle        = NULL;
+TaskHandle_t Task3CommandProcessHandle = NULL;
+TaskHandle_t Task4UsartWritedHandle    = NULL;
+
+QueueHandle_t Uart_Write_Queue = NULL;
+QueueHandle_t Command_Queue = NULL;
+
+void Task1MenuDisplay(void *params);
+void Task2Command(void *params);
+void Task3CommandProcess(void *params);
+void Task4UsartWrite(void *params);
+
+void Sys_Config();
+void GPIO_Config();
+void USART_Config();
+
+uint8_t command_buffer[20];
+uint8_t command_length = 0;
+
+void USART2_IRQHandler(void){
+
+	uint8_t rx_karakter;
+	BaseType_t xHigherPriorityTaskWoken = pdFALSE;
+
+	if(USART_GetFlagStatus(USART2,USART_FLAG_RXNE)){
+
+		rx_karakter = USART_ReceiveData(USART2);
+
+		command_buffer[command_length++] = rx_karakter & 0xFF;
+
+		if(rx_karakter == 10){
+
+			command_length = 0;
+
+			xTaskNotifyFromISR(Task1MenuDisplayHandle , 0 ,eNoAction , &xHigherPriorityTaskWoken);
+			xTaskNotifyFromISR(Task2CommandHandle , 0 , eNoAction , &xHigherPriorityTaskWoken);
+
+		}
+
+		USART_ClearFlag(USART2,USART_FLAG_RXNE);
+	}
+
+}
+
+void printMessage(char *message){
+
+	for(int i=0; i< strlen(message);i++){
+
+		while(USART_GetFlagStatus(USART2,USART_FLAG_TXE) != SET);
+		USART_SendData(USART2,message[i]);
+	}
+}
+
+typedef struct APP_COMMAND{
+
+	uint8_t COMMAND_NUM;
+	uint8_t COMMAND_ARGS[10];
+
+}APP_COMMAND_t;
+
+
+int main(void)
+{
+
+	RCC_DeInit();
+
+	SystemCoreClockUpdate();
+
+	Sys_Config();
+
+	Uart_Write_Queue = xQueueCreate(10 , sizeof(char *));
+	Command_Queue = xQueueCreate(10 , sizeof(APP_COMMAND_t *));
+
+	if((Uart_Write_Queue != NULL ) && (Command_Queue != NULL)){
+
+		sprintf(mymessage, "Queue creation succesfull. \r \n");
+		printMessage(mymessage);
+
+		xTaskCreate(Task1MenuDisplay , "Task1MenuDisplay" , 500 , NULL , 2 , &Task1MenuDisplayHandle);
+		xTaskCreate(Task2Command , "Task2Command" , 500 , NULL , 2 , &Task2CommandHandle);
+		xTaskCreate(Task3CommandProcess , "Task3CommandProcess" , 500 , NULL , 2 , &Task3CommandProcessHandle);
+		xTaskCreate(Task4UsartWrite , "Task4UsartWrite" , 500 , NULL , 2 , &Task4UsartWritedHandle);
+
+		vTaskStartScheduler();
+	}
+	else{
+		sprintf(mymessage, "Queue creation failed. \r \n");
+		printMessage(mymessage);
+
+	}
+  while (1)
+  {
+
+  }
+}
+
+void Task1MenuDisplay(void *params){
+
+
+	while(1){
+
+		xTaskNotifyWait(0 , 0 , NULL , portMAX_DELAY);
+
+	}
+
+}
+
+void Task2Command(void *params){
+
+	while(1){
+
+		xTaskNotifyWait(0 , 0 , NULL , portMAX_DELAY);
+
+	}
+
+}
+
+void Task3CommandProcess(void *params){
+
+	while(1){
+
+	}
+
+}
+void Task4UsartWrite(void *params){
+
+	while(1){
+
+
+	}
+}
+
+void Sys_Config(){
+
+	GPIO_Config();
+	USART_Config();
+
+}
+
+void GPIO_Config(){
+
+	RCC_AHB1PeriphClockCmd(RCC_AHB1Periph_GPIOA,ENABLE);
+	RCC_AHB1PeriphClockCmd(RCC_AHB1Periph_GPIOD,ENABLE);
+
+	GPIO_InitTypeDef GPIO_InitStruct = {0};
+
+	GPIO_InitStruct.GPIO_Mode = GPIO_Mode_AF;
+	GPIO_InitStruct.GPIO_OType = GPIO_OType_PP;
+	GPIO_InitStruct.GPIO_Pin = GPIO_Pin_2 | GPIO_Pin_3;
+	GPIO_InitStruct.GPIO_PuPd = GPIO_PuPd_UP;
+	GPIO_InitStruct.GPIO_Speed = GPIO_Speed_100MHz;
+
+	GPIO_PinAFConfig(GPIOA,GPIO_PinSource2,GPIO_AF_USART2);
+	GPIO_PinAFConfig(GPIOA,GPIO_PinSource3,GPIO_AF_USART2);
+
+	GPIO_Init(GPIOA,&GPIO_InitStruct);
+
+	GPIO_InitStruct.GPIO_Mode = GPIO_Mode_OUT;
+	GPIO_InitStruct.GPIO_OType = GPIO_OType_PP;
+	GPIO_InitStruct.GPIO_Pin = GPIO_Pin_12 | GPIO_Pin_13 | GPIO_Pin_14 | GPIO_Pin_15;
+	GPIO_InitStruct.GPIO_PuPd = GPIO_PuPd_NOPULL;
+	GPIO_InitStruct.GPIO_Speed = GPIO_Speed_100MHz;
+
+	GPIO_Init(GPIOD,&GPIO_InitStruct);
+
+}
+
+void USART_Config(){
+
+	RCC_APB1PeriphClockCmd(RCC_APB1Periph_USART2,ENABLE);
+
+	USART_InitTypeDef USART_InitStruct = {0};
+
+	USART_InitStruct.USART_BaudRate = 9600;
+	USART_InitStruct.USART_HardwareFlowControl = USART_HardwareFlowControl_None;
+	USART_InitStruct.USART_Mode = USART_Mode_Tx | USART_Mode_Rx;
+	USART_InitStruct.USART_Parity = USART_Parity_No;
+	USART_InitStruct.USART_StopBits = USART_StopBits_1;
+	USART_InitStruct.USART_WordLength = USART_WordLength_8b;
+
+	USART_Init(USART2,&USART_InitStruct);
+
+	USART_ITConfig(USART2,USART_IT_RXNE,ENABLE);
+
+	NVIC_SetPriority(USART2_IRQn,5);
+
+	NVIC_EnableIRQ(USART2_IRQn);
+
+
+	USART_Cmd(USART2,ENABLE);
+
+
+}
+
+
+
+
+void EVAL_AUDIO_TransferComplete_CallBack(uint32_t pBuffer, uint32_t Size){
+  /* TODO, implement your code here */
+  return;
+}
+
+
+
+uint16_t EVAL_AUDIO_GetSampleCallBack(void){
+  /* TODO, implement your code here */
+  return -1;
+}

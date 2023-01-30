@@ -1,0 +1,46 @@
+17:46:32 **** Incremental Build of configuration Debug for project proje2_seggersytem ****
+Info: Internal Builder is used for build
+arm-atollic-eabi-gcc -c ..\src\main.c -mthumb -mcpu=cortex-m4 -mfloat-abi=hard -mfpu=fpv4-sp-d16 -std=gnu11 -DSTM32F4XX -DSTM32F40XX -DUSE_STDPERIPH_DRIVER -DUSE_STM32F4_DISCOVERY -DHSE_VALUE=8000000 -I../src -IC:\Free_RTOS\proje2_seggmensytemview\MiddleWares\Third_Party\FreeRTOS\org\Source\include -IC:\Free_RTOS\proje2_seggmensytemview\FreeRTOSConfig -IC:\Free_RTOS\proje2_seggmensytemview\MiddleWares\Third_Party\SEGGER\Config -IC:\Free_RTOS\proje2_seggmensytemview\MiddleWares\Third_Party\SEGGER\OS -IC:\Free_RTOS\proje2_seggmensytemview\MiddleWares\Third_Party\SEGGER\SEGGER -IC:\Free_RTOS\proje2_seggmensytemview\FreeRTOSConfig -IC:\Free_RTOS\proje2_seggmensytemview\MiddleWares\Third_Party\FreeRTOS\org\Source\portable\GCC\ARM_CM4F -IC:\Free_RTOS\proje2_seggmensytemview\MiddleWares\Third_Party\FreeRTOS\org\Source\include -I../Libraries/CMSIS/Include -I../Libraries/Device/STM32F4xx/Include -I../Libraries/STM32F4xx_StdPeriph_Driver/inc -I../Utilities/STM32F4-Discovery -O0 -ffunction-sections -fdata-sections -g -fstack-usage -Wall -specs=nano.specs -o src\main.o 
+arm-atollic-eabi-gcc -c ..\Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_rtc.c -mthumb -mcpu=cortex-m4 -mfloat-abi=hard -mfpu=fpv4-sp-d16 -std=gnu11 -DSTM32F4XX -DSTM32F40XX -DUSE_STDPERIPH_DRIVER -DUSE_STM32F4_DISCOVERY -DHSE_VALUE=8000000 -I../src -IC:\Free_RTOS\proje2_seggmensytemview\MiddleWares\Third_Party\FreeRTOS\org\Source\include -IC:\Free_RTOS\proje2_seggmensytemview\FreeRTOSConfig -IC:\Free_RTOS\proje2_seggmensytemview\MiddleWares\Third_Party\SEGGER\Config -IC:\Free_RTOS\proje2_seggmensytemview\MiddleWares\Third_Party\SEGGER\OS -IC:\Free_RTOS\proje2_seggmensytemview\MiddleWares\Third_Party\SEGGER\SEGGER -IC:\Free_RTOS\proje2_seggmensytemview\FreeRTOSConfig -IC:\Free_RTOS\proje2_seggmensytemview\MiddleWares\Third_Party\FreeRTOS\org\Source\portable\GCC\ARM_CM4F -IC:\Free_RTOS\proje2_seggmensytemview\MiddleWares\Third_Party\FreeRTOS\org\Source\include -I../Libraries/CMSIS/Include -I../Libraries/Device/STM32F4xx/Include -I../Libraries/STM32F4xx_StdPeriph_Driver/inc -I../Utilities/STM32F4-Discovery -O0 -ffunction-sections -fdata-sections -g -fstack-usage -Wall -specs=nano.specs -o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_rtc.o 
+arm-atollic-eabi-gcc -c ..\MiddleWares\Third_Party\SEGGER\Config\SEGGER_SYSVIEW_Config_FreeRTOS.c -mthumb -mcpu=cortex-m4 -mfloat-abi=hard -mfpu=fpv4-sp-d16 -std=gnu11 -DSTM32F4XX -DSTM32F40XX -DUSE_STDPERIPH_DRIVER -DUSE_STM32F4_DISCOVERY -DHSE_VALUE=8000000 -I../src -IC:\Free_RTOS\proje2_seggmensytemview\MiddleWares\Third_Party\FreeRTOS\org\Source\include -IC:\Free_RTOS\proje2_seggmensytemview\FreeRTOSConfig -IC:\Free_RTOS\proje2_seggmensytemview\MiddleWares\Third_Party\SEGGER\Config -IC:\Free_RTOS\proje2_seggmensytemview\MiddleWares\Third_Party\SEGGER\OS -IC:\Free_RTOS\proje2_seggmensytemview\MiddleWares\Third_Party\SEGGER\SEGGER -IC:\Free_RTOS\proje2_seggmensytemview\FreeRTOSConfig -IC:\Free_RTOS\proje2_seggmensytemview\MiddleWares\Third_Party\FreeRTOS\org\Source\portable\GCC\ARM_CM4F -IC:\Free_RTOS\proje2_seggmensytemview\MiddleWares\Third_Party\FreeRTOS\org\Source\include -I../Libraries/CMSIS/Include -I../Libraries/Device/STM32F4xx/Include -I../Libraries/STM32F4xx_StdPeriph_Driver/inc -I../Utilities/STM32F4-Discovery -O0 -ffunction-sections -fdata-sections -g -fstack-usage -Wall -specs=nano.specs -o MiddleWares\Third_Party\SEGGER\Config\SEGGER_SYSVIEW_Config_FreeRTOS.o 
+arm-atollic-eabi-gcc -c ..\Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_i2c.c -mthumb -mcpu=cortex-m4 -mfloat-abi=hard -mfpu=fpv4-sp-d16 -std=gnu11 -DSTM32F4XX -DSTM32F40XX -DUSE_STDPERIPH_DRIVER -DUSE_STM32F4_DISCOVERY -DHSE_VALUE=8000000 -I../src -IC:\Free_RTOS\proje2_seggmensytemview\MiddleWares\Third_Party\FreeRTOS\org\Source\include -IC:\Free_RTOS\proje2_seggmensytemview\FreeRTOSConfig -IC:\Free_RTOS\proje2_seggmensytemview\MiddleWares\Third_Party\SEGGER\Config -IC:\Free_RTOS\proje2_seggmensytemview\MiddleWares\Third_Party\SEGGER\OS -IC:\Free_RTOS\proje2_seggmensytemview\MiddleWares\Third_Party\SEGGER\SEGGER -IC:\Free_RTOS\proje2_seggmensytemview\FreeRTOSConfig -IC:\Free_RTOS\proje2_seggmensytemview\MiddleWares\Third_Party\FreeRTOS\org\Source\portable\GCC\ARM_CM4F -IC:\Free_RTOS\proje2_seggmensytemview\MiddleWares\Third_Party\FreeRTOS\org\Source\include -I../Libraries/CMSIS/Include -I../Libraries/Device/STM32F4xx/Include -I../Libraries/STM32F4xx_StdPeriph_Driver/inc -I../Utilities/STM32F4-Discovery -O0 -ffunction-sections -fdata-sections -g -fstack-usage -Wall -specs=nano.specs -o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_i2c.o 
+arm-atollic-eabi-gcc -c ..\MiddleWares\Third_Party\FreeRTOS\org\Source\tasks.c -mthumb -mcpu=cortex-m4 -mfloat-abi=hard -mfpu=fpv4-sp-d16 -std=gnu11 -DSTM32F4XX -DSTM32F40XX -DUSE_STDPERIPH_DRIVER -DUSE_STM32F4_DISCOVERY -DHSE_VALUE=8000000 -I../src -IC:\Free_RTOS\proje2_seggmensytemview\MiddleWares\Third_Party\FreeRTOS\org\Source\include -IC:\Free_RTOS\proje2_seggmensytemview\FreeRTOSConfig -IC:\Free_RTOS\proje2_seggmensytemview\MiddleWares\Third_Party\SEGGER\Config -IC:\Free_RTOS\proje2_seggmensytemview\MiddleWares\Third_Party\SEGGER\OS -IC:\Free_RTOS\proje2_seggmensytemview\MiddleWares\Third_Party\SEGGER\SEGGER -IC:\Free_RTOS\proje2_seggmensytemview\FreeRTOSConfig -IC:\Free_RTOS\proje2_seggmensytemview\MiddleWares\Third_Party\FreeRTOS\org\Source\portable\GCC\ARM_CM4F -IC:\Free_RTOS\proje2_seggmensytemview\MiddleWares\Third_Party\FreeRTOS\org\Source\include -I../Libraries/CMSIS/Include -I../Libraries/Device/STM32F4xx/Include -I../Libraries/STM32F4xx_StdPeriph_Driver/inc -I../Utilities/STM32F4-Discovery -O0 -ffunction-sections -fdata-sections -g -fstack-usage -Wall -specs=nano.specs -o MiddleWares\Third_Party\FreeRTOS\org\Source\tasks.o 
+..\MiddleWares\Third_Party\FreeRTOS\org\Source\tasks.c: In function 'ulTaskGenericNotifyTake':
+..\MiddleWares\Third_Party\FreeRTOS\org\Source\tasks.c:4745:50: error: macro "traceTASK_NOTIFY_TAKE" passed 1 arguments, but takes just 0
+             traceTASK_NOTIFY_TAKE( uxIndexToWait );
+                                                  ^
+..\MiddleWares\Third_Party\FreeRTOS\org\Source\tasks.c:4745:13: error: 'traceTASK_NOTIFY_TAKE' undeclared (first use in this function)
+             traceTASK_NOTIFY_TAKE( uxIndexToWait );
+             ^~~~~~~~~~~~~~~~~~~~~
+..\MiddleWares\Third_Party\FreeRTOS\org\Source\tasks.c:4745:13: note: each undeclared identifier is reported only once for each function it appears in
+..\MiddleWares\Third_Party\FreeRTOS\org\Source\tasks.c: In function 'xTaskGenericNotifyWait':
+..\MiddleWares\Third_Party\FreeRTOS\org\Source\tasks.c:4824:50: error: macro "traceTASK_NOTIFY_WAIT" passed 1 arguments, but takes just 0
+             traceTASK_NOTIFY_WAIT( uxIndexToWait );
+                                                  ^
+..\MiddleWares\Third_Party\FreeRTOS\org\Source\tasks.c:4824:13: error: 'traceTASK_NOTIFY_WAIT' undeclared (first use in this function)
+             traceTASK_NOTIFY_WAIT( uxIndexToWait );
+             ^~~~~~~~~~~~~~~~~~~~~
+..\MiddleWares\Third_Party\FreeRTOS\org\Source\tasks.c: In function 'xTaskGenericNotify':
+..\MiddleWares\Third_Party\FreeRTOS\org\Source\tasks.c:4931:47: error: macro "traceTASK_NOTIFY" passed 1 arguments, but takes just 0
+             traceTASK_NOTIFY( uxIndexToNotify );
+                                               ^
+..\MiddleWares\Third_Party\FreeRTOS\org\Source\tasks.c:4931:13: error: 'traceTASK_NOTIFY' undeclared (first use in this function)
+             traceTASK_NOTIFY( uxIndexToNotify );
+             ^~~~~~~~~~~~~~~~
+..\MiddleWares\Third_Party\FreeRTOS\org\Source\tasks.c: In function 'xTaskGenericNotifyFromISR':
+..\MiddleWares\Third_Party\FreeRTOS\org\Source\tasks.c:5073:56: error: macro "traceTASK_NOTIFY_FROM_ISR" passed 1 arguments, but takes just 0
+             traceTASK_NOTIFY_FROM_ISR( uxIndexToNotify );
+                                                        ^
+..\MiddleWares\Third_Party\FreeRTOS\org\Source\tasks.c:5073:13: error: 'traceTASK_NOTIFY_FROM_ISR' undeclared (first use in this function)
+             traceTASK_NOTIFY_FROM_ISR( uxIndexToNotify );
+             ^~~~~~~~~~~~~~~~~~~~~~~~~
+..\MiddleWares\Third_Party\FreeRTOS\org\Source\tasks.c: In function 'vTaskGenericNotifyGiveFromISR':
+..\MiddleWares\Third_Party\FreeRTOS\org\Source\tasks.c:5164:61: error: macro "traceTASK_NOTIFY_GIVE_FROM_ISR" passed 1 arguments, but takes just 0
+             traceTASK_NOTIFY_GIVE_FROM_ISR( uxIndexToNotify );
+                                                             ^
+..\MiddleWares\Third_Party\FreeRTOS\org\Source\tasks.c:5164:13: error: 'traceTASK_NOTIFY_GIVE_FROM_ISR' undeclared (first use in this function)
+             traceTASK_NOTIFY_GIVE_FROM_ISR( uxIndexToNotify );
+             ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+17:46:33 Build Finished (took 1s.469ms)
+
